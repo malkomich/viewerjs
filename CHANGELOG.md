@@ -1,9 +1,16 @@
 # Changelog
 
+## 2.1.0 (May 13, 2020)
+
+- Disable context menu && any mouse event on canvas elements to prevent image download
+- Fix a bug regarding the reference name for Viewer class
+- Create Github workflows for npm building & publishing
+
 ## 2.0.0 (May 12, 2020)
 
 - Canvas support, to improve privacy disabling image saving or copying (#383)
 - Canvas data encryption to hide source images (#383)
+- Sanitize dependencies && fix compatibility issues.
 
 ## 1.5.0 (Nov 23, 2019)
 
