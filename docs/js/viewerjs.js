@@ -1,17 +1,17 @@
 /*!
- * viewerjs.js v2.0.1
+ * viewerjs.js v2.0.0
  * https://malkomich.github.io/viewerjs
  *
  * Copyright 2020 Juan Carlos Gonzalez
  * Released under the MIT license
  *
- * Date: 2020-05-13T14:15:38.872Z
+ * Date: 2020-05-13T16:23:20.063Z
  */
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('crypto')) :
   typeof define === 'function' && define.amd ? define(['crypto'], factory) :
-  (global = global || self, global.ViewerJS = factory(global.crypto));
+  (global = global || self, global.Viewer = factory(global.crypto));
 }(this, (function (crypto) { 'use strict';
 
   crypto = crypto && Object.prototype.hasOwnProperty.call(crypto, 'default') ? crypto['default'] : crypto;
@@ -1218,12 +1218,20 @@
     var callback = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : function () {};
     var context = canvas.getContext('2d');
     var image = new Image();
-    canvas.width = container.clientWidth;
+    canvas.width = container.width || container.clientWidth;
     canvas.height = container.height || container.clientHeight;
 
     image.onload = function () {
       context.drawImage(image, 0, 0, container.clientWidth, container.clientHeight);
       callback(canvas);
+    };
+
+    canvas.onmousedown = function (event) {
+      event.preventDefault();
+    };
+
+    canvas.oncontextmenu = function () {
+      return false;
     };
 
     image.src = src;
