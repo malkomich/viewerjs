@@ -1,11 +1,11 @@
 /*!
- * viewerjs.js v2.0.0
+ * viewerjs.js v2.0.1
  * https://malkomich.github.io/viewerjs
  *
  * Copyright 2020 Juan Carlos Gonzalez
  * Released under the MIT license
  *
- * Date: 2020-05-13T04:27:59.659Z
+ * Date: 2020-05-13T14:15:38.872Z
  */
 
 (function (global, factory) {
