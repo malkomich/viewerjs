@@ -18,7 +18,7 @@ module.exports = (config) => {
     },
     files: [
       'src/index.js',
-      'dist/viewer.css',
+      'dist/viewerjs.css',
       'test/helpers.js',
       'test/specs/**/*.spec.js',
       {

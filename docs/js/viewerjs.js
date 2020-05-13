@@ -1,17 +1,17 @@
 /*!
- * Viewer.js v1.5.0
- * https://fengyuanchen.github.io/viewerjs
+ * viewerjs.js v2.0.0
+ * https://malkomich.github.io/viewerjs
  *
- * Copyright 2015-present Chen Fengyuan
+ * Copyright 2020 Juan Carlos Gonzalez
  * Released under the MIT license
  *
- * Date: 2020-05-07T02:02:53.195Z
+ * Date: 2020-05-13T04:27:59.659Z
  */
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('crypto')) :
   typeof define === 'function' && define.amd ? define(['crypto'], factory) :
-  (global = global || self, global.Viewer = factory(global.crypto));
+  (global = global || self, global.ViewerJS = factory(global.crypto));
 }(this, (function (crypto) { 'use strict';
 
   crypto = crypto && Object.prototype.hasOwnProperty.call(crypto, 'default') ? crypto['default'] : crypto;
@@ -462,7 +462,7 @@
      * Define the CSS `z-index` value of viewer in modal mode.
      * @type {number}
      */
-    zIndex: 2015,
+    zIndex: 100,
 
     /**
      * Define the CSS `z-index` value of viewer in inline mode.
@@ -578,7 +578,7 @@
 
   function getHiddenData(canvas, attribute) {
     var dataDiv = canvas.getElementsByTagName('data-div');
-    return dataDiv[0].getData(attribute);
+    return dataDiv[0] && dataDiv[0].getData(attribute);
   }
   /**
    * Check if the given value is a string.
@@ -3089,12 +3089,12 @@
 
   var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
-  function commonjsRequire () {
-  	throw new Error('Dynamic requires are not currently supported by rollup-plugin-commonjs');
-  }
-
   function createCommonjsModule(fn, module) {
   	return module = { exports: {} }, fn(module, module.exports), module.exports;
+  }
+
+  function commonjsRequire () {
+  	throw new Error('Dynamic requires are not currently supported by @rollup/plugin-commonjs');
   }
 
   var core = createCommonjsModule(function (module, exports) {
@@ -9025,7 +9025,7 @@
     return CryptoJS;
   });
   });
-  var cryptoJs_1 = cryptoJs.isValidElementType;
+  var cryptoJs_1 = cryptoJs.CryptoJS;
 
   function encrypt(data) {
     return cryptoJs.enc.Base64.stringify(cryptoJs.enc.Utf8.parse(data));
