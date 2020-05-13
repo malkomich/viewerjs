@@ -5,7 +5,7 @@ const commonjs = require('@rollup/plugin-commonjs');
 const { terser } = require('rollup-plugin-terser');
 
 const fileName = 'viewerjs';
-const umdName = 'ViewerJS';
+const umdName = 'Viewer';
 const banner = createBanner({
   data: {
     name: `${fileName}.js`,

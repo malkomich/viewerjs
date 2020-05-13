@@ -1,8 +1,9 @@
 # Changelog
 
-## next
+## 2.0.0 (May 12, 2020)
 
-- Improve the `hide` method for unexpected calling (#367).
+- Canvas support, to improve privacy disabling image saving or copying (#383)
+- Canvas data encryption to hide source images (#383)
 
 ## 1.5.0 (Nov 23, 2019)
 

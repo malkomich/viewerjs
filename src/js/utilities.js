@@ -705,7 +705,7 @@ export function drawCanvas(canvas, src, container = canvas.parentNode, callback 
   const context = canvas.getContext('2d');
   const image = new Image();
 
-  canvas.width = container.clientWidth;
+  canvas.width = container.width || container.clientWidth;
   canvas.height = container.height || container.clientHeight;
 
   image.onload = () => {
@@ -719,6 +719,12 @@ export function drawCanvas(canvas, src, container = canvas.parentNode, callback 
 
     callback(canvas);
   };
+
+  canvas.onmousedown = (event) => {
+    event.preventDefault();
+  };
+  canvas.oncontextmenu = () => false;
+
   image.src = src;
 }
 
