@@ -167,7 +167,7 @@ export default {
    * Define the CSS `z-index` value of viewer in modal mode.
    * @type {number}
    */
-  zIndex: 2015,
+  zIndex: 100,
 
   /**
    * Define the CSS `z-index` value of viewer in inline mode.

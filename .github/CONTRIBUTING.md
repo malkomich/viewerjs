@@ -1,8 +1,8 @@
-# Contributing to Viewer.js
+# Contributing to ViewerJS
 
 > Based on [Angular's contributing guidelines](https://github.com/angular/angular/blob/master/CONTRIBUTING.md).
 
-We would love for you to contribute to Viewer.js and help make it even better than it is today! As a contributor, here are the guidelines we would like you to follow:
+We would love for you to contribute to ViewerJS and help make it even better than it is today! As a contributor, here are the guidelines we would like you to follow:
 
 - [Code of Conduct](#code-of-conduct)
 - [Question or Problem](#question-or-problem)
@@ -14,7 +14,7 @@ We would love for you to contribute to Viewer.js and help make it even better th
 
 ## Code of Conduct
 
-Help us keep Viewer.js open and inclusive. Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md).
+Help us keep ViewerJS open and inclusive. Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Question or Problem
 
@@ -30,11 +30,11 @@ To save your and our time, we will systematically close all issues that are requ
 
 ## Issues and Bugs
 
-If you find a bug in the source code, you can help us by [submitting an issue](#submitting-an-issue) to our [GitHub Repository](https://github.com/fengyuanchen/viewerjs). Even better, you can [submit a Pull Request](#submitting-a-pull-request-pr) with a fix.
+If you find a bug in the source code, you can help us by [submitting an issue](#submitting-an-issue) to our [GitHub Repository](https://github.com/malkomich/viewerjs). Even better, you can [submit a Pull Request](#submitting-a-pull-request-pr) with a fix.
 
 ## Feature Requests
 
-You can *request* a new feature by [submitting an issue](#submitting-an-issue) to our [GitHub Repository](https://github.com/fengyuanchen/viewerjs). If you would like to *implement* a new feature, please submit an issue with a proposal for your work first, to be sure that we can use it.
+You can *request* a new feature by [submitting an issue](#submitting-an-issue) to our [GitHub Repository](https://github.com/malkomich/viewerjs). If you would like to *implement* a new feature, please submit an issue with a proposal for your work first, to be sure that we can use it.
 
 Please consider what kind of change it is:
 
@@ -45,11 +45,11 @@ Please consider what kind of change it is:
 
 ### Submitting an Issue
 
-Before you submit an issue, please search the [issue tracker](https://github.com/fengyuanchen/viewerjs/issues), maybe an issue for your problem already exists and the discussion might inform you of workarounds readily available.
+Before you submit an issue, please search the [issue tracker](https://github.com/malkomich/viewerjs/issues), maybe an issue for your problem already exists and the discussion might inform you of workarounds readily available.
 
 We want to fix all the issues as soon as possible, but before fixing a bug we need to reproduce and confirm it. In order to reproduce bugs we will systematically ask you to provide a minimal reproduction scenario using [CodePen](https://codepen.io/pen). Having a live, reproducible scenario gives us wealth of important information without going back & forth to you with additional questions like:
 
-- version of Viewer.js used
+- version of ViewerJS used
 - 3rd-party libraries and their versions
 - and most importantly - a use-case that fails
 
@@ -59,14 +59,14 @@ We will be insisting on a minimal reproduce scenario in order to save maintainer
 
 Unfortunately we are not able to investigate / fix bugs without a minimal reproduce scenario, so if we don't hear back from you we are going to close an issue that don't have enough info to be reproduced.
 
-You can file new issues by filling out our [new issue form](https://github.com/fengyuanchen/viewerjs/issues/new).
+You can file new issues by filling out our [new issue form](https://github.com/malkomich/viewerjs/issues/new).
 
 ### Submitting a Pull Request (PR)
 
 Before you submit your Pull Request (PR) consider the following guidelines:
 
-1. Search [GitHub](https://github.com/fengyuanchen/viewerjs/pulls) for an open or closed PR that relates to your submission. You don't want to duplicate effort.
-1. Fork the **fengyuanchen/viewerjs** repo.
+1. Search [GitHub](https://github.com/malkomich/viewerjs/pulls) for an open or closed PR that relates to your submission. You don't want to duplicate effort.
+1. Fork the **malkomich/viewerjs** repo.
 1. Make your changes in a new git branch:
 
     ```shell
@@ -75,7 +75,7 @@ Before you submit your Pull Request (PR) consider the following guidelines:
 
 1. Create your patch, **including appropriate test cases**.
 1. Follow our [Coding Rules](#coding-rules).
-1. Run the full Viewer.js test suite, and ensure that all tests pass.
+1. Run the full ViewerJS test suite, and ensure that all tests pass.
 1. Commit your changes using a descriptive commit message that follows our [Commit Message Guidelines](#commit-message-guidelines). Adherence to these guidelines is necessary because release notes are automatically generated from these messages.
 
     ```shell
@@ -92,7 +92,7 @@ Before you submit your Pull Request (PR) consider the following guidelines:
 1. In GitHub, send a pull request to `viewerjs:master`.
 1. If we suggest changes then:
     - Make the required updates.
-    - Re-run the Viewer.js test suites to ensure tests are still passing.
+    - Re-run the ViewerJS test suites to ensure tests are still passing.
     - Rebase your branch and force push to your GitHub repository (this will update your Pull Request):
 
     ```shell
@@ -158,7 +158,7 @@ Any line of the commit message cannot be longer 100 characters! This allows the 
 
 The footer should contain a [closing reference to an issue](https://help.github.com/articles/closing-issues-via-commit-messages/) if any.
 
-Here are some [samples](https://github.com/fengyuanchen/viewerjs/commits/master).
+Here are some [samples](https://github.com/malkomich/viewerjs/commits/master).
 
 ### Revert
 

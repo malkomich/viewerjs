@@ -15,7 +15,7 @@ import {
  */
 export function getHiddenData(canvas, attribute) {
   const dataDiv = canvas.getElementsByTagName('data-div');
-  return dataDiv[0].getData(attribute);
+  return dataDiv[0] && dataDiv[0].getData(attribute);
 }
 
 /**

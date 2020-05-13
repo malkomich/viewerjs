@@ -1,17 +1,15 @@
 const babel = require('rollup-plugin-babel');
-const changeCase = require('change-case');
 const createBanner = require('create-banner');
-const nodeResolve = require('rollup-plugin-node-resolve');
-const commonjs = require('rollup-plugin-commonjs');
-const pkg = require('./package');
+const resolve = require('@rollup/plugin-node-resolve');
+const commonjs = require('@rollup/plugin-commonjs');
+const { terser } = require('rollup-plugin-terser');
 
-pkg.name = pkg.name.replace('js', '');
-
-const name = changeCase.pascalCase(pkg.name);
+const fileName = 'viewerjs';
+const umdName = 'ViewerJS';
 const banner = createBanner({
   data: {
-    name: `${name}.js`,
-    year: '2015-present',
+    name: `${fileName}.js`,
+    year: '2020',
   },
 });
 
@@ -20,37 +18,56 @@ module.exports = {
   output: [
     {
       banner,
-      name,
-      file: `dist/${pkg.name}.js`,
+      name: umdName,
+      file: `dist/${fileName}.js`,
       format: 'umd',
+      globals: {
+        crypto: 'crypto',
+      },
     },
     {
       banner,
-      file: `dist/${pkg.name}.common.js`,
+      name: umdName,
+      file: `dist/${fileName}.min.js`,
+      format: 'umd',
+      globals: {
+        crypto: 'crypto',
+      },
+    },
+    {
+      banner,
+      file: `dist/${fileName}.common.js`,
       format: 'cjs',
     },
     {
       banner,
-      file: `dist/${pkg.name}.esm.js`,
+      file: `dist/${fileName}.esm.js`,
       format: 'esm',
     },
     {
       banner,
-      name,
-      file: `docs/js/${pkg.name}.js`,
+      name: umdName,
+      file: `docs/js/${fileName}.js`,
       format: 'umd',
+      globals: {
+        crypto: 'crypto',
+      },
     },
   ],
   plugins: [
     babel(),
-    nodeResolve(),
+    resolve({
+      preferBuiltins: false,
+    }),
     commonjs({
+      include: 'node_modules/**',
       namedExports: {
-        'node_modules/crypto-js/index.js': ['isValidElementType'],
+        'crypto-js': ['CryptoJS'],
       },
-      include: [
-        /node_modules\/crypto-js/,
-      ],
+    }),
+    terser({
+      include: [/^.+\.min\.js$/],
     }),
   ],
+  external: ['crypto'],
 };

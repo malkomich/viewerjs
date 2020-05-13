@@ -1,11 +1,11 @@
-# Viewer.js
+# ViewerJS
 
-[![Build Status](https://img.shields.io/travis/fengyuanchen/viewerjs.svg)](https://travis-ci.org/fengyuanchen/viewerjs) [![Downloads](https://img.shields.io/npm/dm/viewerjs.svg)](https://www.npmjs.com/package/viewerjs) [![Version](https://img.shields.io/npm/v/viewerjs.svg)](https://www.npmjs.com/package/viewerjs)
+[![Build Status](https://img.shields.io/travis/malkomich/viewerjs.svg)](https://travis-ci.org/malkomich/viewerjs)
+[![Version](http://img.shields.io/npm/v/@malkomich/viewerjs.svg)](https://www.npmjs.com/package/@malkomich/viewerjs)
 
 > JavaScript image viewer.
 
-- [Website](https://fengyuanchen.github.io/viewerjs)
-- [jquery-viewer](https://github.com/fengyuanchen/jquery-viewer) - A jQuery plugin wrapper for Viewer.js.
+- [Website](https://malkomich.github.io/viewerjs/)
 
 ## Table of contents
 
@@ -27,6 +27,7 @@
 - Supports 42 [options](#options)
 - Supports 23 [methods](#methods)
 - Supports 9 [events](#events)
+- Supports hidden source canvas
 - Supports modal and inline modes
 - Supports touch
 - Supports move
@@ -40,12 +41,12 @@
 
 ```text
 dist/
-├── viewer.css
-├── viewer.min.css   (compressed)
-├── viewer.js        (UMD)
-├── viewer.min.js    (UMD, compressed)
-├── viewer.common.js (CommonJS, default)
-└── viewer.esm.js    (ES Module)
+├── viewerjs.css
+├── viewerjs.min.css   (compressed)
+├── viewerjs.js        (UMD)
+├── viewerjs.min.js    (UMD, compressed)
+├── viewerjs.common.js (CommonJS, default)
+└── viewerjs.esm.js    (ES Module)
 ```
 
 ## Getting started
@@ -59,11 +60,11 @@ npm install viewerjs
 In browser:
 
 ```html
-<link  href="/path/to/viewer.css" rel="stylesheet">
-<script src="/path/to/viewer.js"></script>
+<link  href="/path/to/viewerjs.css" rel="stylesheet">
+<script src="/path/to/viewerjs.js"></script>
 ```
 
-The [cdnjs](https://github.com/cdnjs/cdnjs) provides CDN support for Viewer.js's CSS and JavaScript. You can find the links [here](https://cdnjs.com/libraries/viewerjs).
+The [cdnjs](https://github.com/cdnjs/cdnjs) provides CDN support for ViewerJS's CSS and JavaScript. You can find the links [here](https://cdnjs.com/libraries/viewerjs).
 
 ### Usage
 
@@ -87,6 +88,8 @@ new Viewer(element[, options])
 <!-- a block container is required -->
 <div>
   <img id="image" src="picture.jpg" alt="Picture">
+
+  <img id="canvas-image" data-src="picture.jpg" data-alt="Picture">
 </div>
 
 <div>
@@ -96,11 +99,19 @@ new Viewer(element[, options])
     <li><img src="picture-3.jpg" alt="Picture 3"></li>
   </ul>
 </div>
+
+<div>
+  <ul id="canvas-images">
+    <li><canvas data-src="picture-1.jpg" data-alt="Picture 1"></li>
+    <li><canvas data-src="picture-2.jpg" data-alt="Picture 2"></li>
+    <li><canvas data-src="picture-3.jpg" data-alt="Picture 3"></li>
+  </ul>
+</div>
 ```
 
 ```js
 // You should import the CSS file.
-// import 'viewerjs/dist/viewer.css';
+// import 'viewerjs/dist/viewerjs.css';
 import Viewer from 'viewerjs';
 
 // View an image
@@ -110,10 +121,19 @@ const viewer = new Viewer(document.getElementById('image'), {
     viewer.zoomTo(1);
   },
 });
+
+const canvasViewer = new Viewer(document.getElementById('canvas-image'), {
+  inline: true,
+  viewed() {
+    viewer.zoomTo(1);
+  },
+});
 // Then, show the image by click it, or call `viewer.show()`.
 
 // View a list of images
 const gallery = new Viewer(document.getElementById('images'));
+
+const canvasGallery = new Viewer(document.getElementById('canvas-images'));
 // Then, show one image by click it, or call `gallery.show()`.
 ```
 
@@ -908,7 +928,7 @@ If you have to use other viewer with the same namespace, just call the `Viewer.n
 
 ```html
 <script src="other-viewer.js"></script>
-<script src="viewer.js"></script>
+<script src="viewerjs.js"></script>
 <script>
   Viewer.noConflict();
   // Code that uses other `Viewer` can follow here.
@@ -922,7 +942,6 @@ If you have to use other viewer with the same namespace, just call the `Viewer.n
 - Safari (latest)
 - Opera (latest)
 - Edge (latest)
-- Internet Explorer 9+
 
 ## Contributing
 
@@ -934,6 +953,6 @@ Maintained under the [Semantic Versioning guidelines](https://semver.org/).
 
 ## License
 
-[MIT](https://opensource.org/licenses/MIT) © [Chen Fengyuan](https://chenfengyuan.com/)
+[MIT](https://opensource.org/licenses/MIT) © [Juan Carlos Gonzalez](https://malkomich.github.io/)
 
 [⬆ back to top](#table-of-contents)
