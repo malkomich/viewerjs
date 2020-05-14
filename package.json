@@ -5,8 +5,7 @@
   "main": "dist/viewerjs.common.js",
   "module": "dist/viewerjs.esm.js",
   "browser": {
-    "dist/viewerjs.js": "dist/viewerjs.js",
-    "crypto": "./node_modules/crypto/index.js"
+    "dist/viewerjs.js": "dist/viewerjs.js"
   },
   "style": "dist/viewerjs.css",
   "types": "types/index.d.ts",
@@ -21,9 +20,8 @@
     "build:js": "rollup -c",
     "clear": "del-cli dist",
     "codecov": "cat coverage/lcov.info | codecov",
-    "compress": "npm run compress:css && npm run compress:js",
+    "compress": "npm run compress:css",
     "compress:css": "postcss dist/viewerjs.css -u cssnano -o dist/viewerjs.min.css --no-map",
-    "compress:js": "uglifyjs dist/viewerjs.js -o dist/viewerjs.min.js -c -m --comments /^!/",
     "copy": "cpy dist/viewerjs.css docs/css",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:css": "stylelint {src,docs}/**/*.{css,scss,html} --fix",
@@ -97,13 +95,12 @@
     "postcss-preset-env": "^6.7.0",
     "postcss-url": "^8.0.0",
     "puppeteer": "^2.0.0",
-    "rollup": "^1.27.4",
+    "rollup": "^2.10.0",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-terser": "^5.3.0",
     "stylelint": "^13.3.3",
     "stylelint-config-standard": "^19.0.0",
-    "stylelint-order": "^3.1.1",
-    "uglify-js": "^3.6.9"
+    "stylelint-order": "^3.1.1"
   },
   "browserslist": [
     "last 2 versions",

@@ -22,7 +22,7 @@ module.exports = {
       file: `dist/${fileName}.js`,
       format: 'umd',
       globals: {
-        crypto: 'crypto',
+        'crypto-js': 'CryptoJS',
       },
     },
     {
@@ -31,7 +31,7 @@ module.exports = {
       file: `dist/${fileName}.min.js`,
       format: 'umd',
       globals: {
-        crypto: 'crypto',
+        'crypto-js': 'CryptoJS',
       },
     },
     {
@@ -50,7 +50,7 @@ module.exports = {
       file: `docs/js/${fileName}.js`,
       format: 'umd',
       globals: {
-        crypto: 'crypto',
+        'crypto-js': 'CryptoJS',
       },
     },
   ],
@@ -58,16 +58,14 @@ module.exports = {
     babel(),
     resolve({
       preferBuiltins: false,
+      mainFields: ['main'],
     }),
     commonjs({
-      include: 'node_modules/**',
-      namedExports: {
-        'crypto-js': ['CryptoJS'],
-      },
+      include: /node_modules/,
     }),
     terser({
       include: [/^.+\.min\.js$/],
     }),
   ],
-  external: ['crypto'],
+  external: ['crypto-js'],
 };
