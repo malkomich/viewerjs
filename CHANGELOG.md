@@ -1,6 +1,10 @@
 # Changelog
 
-## 2.0.0-rc.1 (May 12, 2020)
+## 2.0.0-rc.3 (May 13, 2020)
+
+- Fix crypto global config
+
+## 2.0.0-rc.1 (May 13, 2020)
 
 - Canvas support, with image download disabled and data encryption to improve privacy (#383)
 - Sanitize dependencies && fix compatibility issues.

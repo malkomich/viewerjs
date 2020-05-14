@@ -22,7 +22,7 @@ module.exports = {
       file: `dist/${fileName}.js`,
       format: 'umd',
       globals: {
-        'crypto-js': 'CryptoJS',
+        crypto: 'crypto',
       },
     },
     {
@@ -31,7 +31,7 @@ module.exports = {
       file: `dist/${fileName}.min.js`,
       format: 'umd',
       globals: {
-        'crypto-js': 'CryptoJS',
+        crypto: 'crypto',
       },
     },
     {
@@ -50,7 +50,7 @@ module.exports = {
       file: `docs/js/${fileName}.js`,
       format: 'umd',
       globals: {
-        'crypto-js': 'CryptoJS',
+        crypto: 'crypto',
       },
     },
   ],
@@ -67,5 +67,5 @@ module.exports = {
       include: [/^.+\.min\.js$/],
     }),
   ],
-  external: ['crypto-js'],
+  external: ['crypto'],
 };
